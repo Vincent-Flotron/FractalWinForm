@@ -18,20 +18,32 @@ namespace FractalWinForm
         Fractal fract;
 
         Bitmap8bits256Colors image;
+        int width;
+        int height;
         public Form1()
         {
             InitializeComponent();
 
             //
-            int width = 2000 / 10;
-            int height = 1500 / 10;
+            width = 700;
+            height = 350;
 
+            Recompute(width, height, -2, 0.47, -1.12, 1.12);
+            //fract = new Fractal(width, height, -2, 0.47, -1.12, 1.12);
 
-            fract = new Fractal(width, height, -2, 0.47, -1.12, 1.12);
+            //image = new Bitmap8bits256Colors(fract.PixelsMatrix, 20, 80, 125);
+            ////image.Write("TestBitmap.bmp");
+            ////pictureBox1.Image = Bitmap.FromFile(@"C:\Users\VFlotron\source\repos\FractalsConsole\FractalsConsole\bin\Debug\TestBitmap.bmp");
+            //MemoryStream stream = image.StartWritingInMemory();
+            //pictureBox1.Image = Bitmap.FromStream(stream);
+            //image.EndWritingInMemory(stream);
+        }
 
-            image = new Bitmap8bits256Colors(fract.PixelsMatrix, 150, 0, 0);
-            //image.Write("TestBitmap.bmp");
-            //pictureBox1.Image = Bitmap.FromFile(@"C:\Users\VFlotron\source\repos\FractalsConsole\FractalsConsole\bin\Debug\TestBitmap.bmp");
+        private void Recompute(int width, int height, double LeftLimit, double RightLimit, double DownLimit, double UpLimit)
+        {
+            fract = new Fractal(width, height, LeftLimit, RightLimit, DownLimit, UpLimit);
+            UpdatePosition();
+            image = new Bitmap8bits256Colors(fract.PixelsMatrix, 0, 80, 125);
             MemoryStream stream = image.StartWritingInMemory();
             pictureBox1.Image = Bitmap.FromStream(stream);
             image.EndWritingInMemory(stream);
@@ -65,16 +77,6 @@ namespace FractalWinForm
                     return base.ProcessCmdKey(ref msg, keyData);
             }
             return true;
-        }
-
-        private void Recompute(int width, int height, double LeftLimit, double RightLimit, double DownLimit, double UpLimit)
-        {
-            fract = new Fractal(width, height, LeftLimit, RightLimit, DownLimit, UpLimit);
-            UpdatePosition();
-            image = new Bitmap8bits256Colors(fract.PixelsMatrix, 150, 0, 0);
-            MemoryStream stream = image.StartWritingInMemory();
-            pictureBox1.Image = Bitmap.FromStream(stream);
-            image.EndWritingInMemory(stream);
         }
 
         private void UpdatePosition()
@@ -112,7 +114,7 @@ namespace FractalWinForm
             fract.UpLimit = fract.DownLimit + imRangeZoomed;
 
             // Calculat the new fractal and refresh display
-            Recompute(fract.Width, fract.Height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
+            Recompute(width, height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
         }
 
         private void btLeft_Click(object sender, EventArgs e)
@@ -128,7 +130,7 @@ namespace FractalWinForm
             fract.LeftLimit = fract.LeftLimit - RealRange / fact;
             fract.RightLimit = fract.LeftLimit + RealRange;
 
-            Recompute(fract.Width, fract.Height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
+            Recompute(width, height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
         }
 
 
@@ -146,7 +148,7 @@ namespace FractalWinForm
             fract.LeftLimit = fract.LeftLimit + RealRange / fact;
             fract.RightLimit = fract.LeftLimit + RealRange;
 
-            Recompute(fract.Width, fract.Height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
+            Recompute(width, height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
         }
 
         private void btUp_Click(object sender, EventArgs e)
@@ -162,7 +164,7 @@ namespace FractalWinForm
             fract.DownLimit = fract.DownLimit + ImRange / fact;
             fract.UpLimit = fract.DownLimit + ImRange;
 
-            Recompute(fract.Width, fract.Height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
+            Recompute(width, height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
         }
 
         private void btDown_Click(object sender, EventArgs e)
@@ -178,7 +180,7 @@ namespace FractalWinForm
             fract.DownLimit = fract.DownLimit - ImRange / fact;
             fract.UpLimit = fract.DownLimit + ImRange;
 
-            Recompute(fract.Width, fract.Height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
+            Recompute(width, height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
         }
 
         private void btUnzoom_Click(object sender, EventArgs e)
@@ -208,7 +210,7 @@ namespace FractalWinForm
             fract.UpLimit = fract.DownLimit + imRangeZoomed;
 
             // Calculat the new fractal and refresh display
-            Recompute(fract.Width, fract.Height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
+            Recompute(width, height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
 
         }
     }

@@ -195,7 +195,7 @@ namespace FractalWinForm
             this.tbMotionFactor.Name = "tbMotionFactor";
             this.tbMotionFactor.Size = new System.Drawing.Size(58, 23);
             this.tbMotionFactor.TabIndex = 16;
-            this.tbMotionFactor.Text = "1.1";
+            this.tbMotionFactor.Text = "10";
             // 
             // Form1
             // 
@@ -221,7 +221,6 @@ namespace FractalWinForm
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Form1";
-            //this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
