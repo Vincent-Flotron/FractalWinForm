@@ -24,19 +24,12 @@ namespace FractalWinForm
         {
             InitializeComponent();
 
-            //
+            // width and height
             width = 700;
             height = 350;
 
             Recompute(width, height, -2, 0.47, -1.12, 1.12);
-            //fract = new Fractal(width, height, -2, 0.47, -1.12, 1.12);
 
-            //image = new Bitmap8bits256Colors(fract.PixelsMatrix, 20, 80, 125);
-            ////image.Write("TestBitmap.bmp");
-            ////pictureBox1.Image = Bitmap.FromFile(@"C:\Users\VFlotron\source\repos\FractalsConsole\FractalsConsole\bin\Debug\TestBitmap.bmp");
-            //MemoryStream stream = image.StartWritingInMemory();
-            //pictureBox1.Image = Bitmap.FromStream(stream);
-            //image.EndWritingInMemory(stream);
         }
 
         private void Recompute(int width, int height, double LeftLimit, double RightLimit, double DownLimit, double UpLimit)

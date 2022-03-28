@@ -216,12 +216,38 @@ namespace BitmapWritter
             double greenIncr = ((double)nbColors - (double)greenShift) / (double)nbColors;
             double blueIncr = ((double)nbColors - (double)blueShift) / (double)nbColors;
 
+            double A_r = 10;
+            double alpha_r;// = i * 2*Math.PI / 256;
+            double B_r = 2 * Math.PI * 0.9;
+            double C_r = 0;
+
+            double A_g = 255;
+            double alpha_g;// = i * 2*Math.PI / 256;
+            double B_g = 2 * Math.PI * 0.5;
+            double C_g = 2;
+
+            double A_b = 50;
+            double alpha_b;// = i * 2*Math.PI / 256;
+            double B_b = 2 * Math.PI * 0.9;
+            double C_b = 4;
+
+            double twoPiDivBy256 = 2 * Math.PI / 256;
+
+
             // Init color palette
             for (int i = 0; i < nbColors; i++)
             {
-                ColorsPalette[i].red = (byte)((int)(i * redIncr + redShift) % nbColors);
-                ColorsPalette[i].green = (byte)((int)(i * greenIncr + greenShift) % nbColors);
-                ColorsPalette[i].blue = (byte)((int)(i * blueIncr + blueShift) % nbColors);
+                alpha_r = i * twoPiDivBy256;
+                alpha_g = i * twoPiDivBy256;
+                alpha_b = i * twoPiDivBy256;
+
+                ColorsPalette[i].red = (byte)(A_r * Math.Sin(alpha_r * 2 * Math.PI + B_r) + C_r);
+                ColorsPalette[i].green = (byte)(A_g * Math.Sin(alpha_g * 2 * Math.PI + B_g) + C_g);
+                ColorsPalette[i].blue = (byte)(A_b * Math.Sin(alpha_b * 2 * Math.PI + B_b) + C_b);
+
+                //ColorsPalette[i].red = (byte)((int)(i * redIncr + redShift) % nbColors);
+                //ColorsPalette[i].green = (byte)((int)(i * greenIncr + greenShift) % nbColors);
+                //ColorsPalette[i].blue = (byte)((int)(i * blueIncr + blueShift) % nbColors);
             }
         }
 

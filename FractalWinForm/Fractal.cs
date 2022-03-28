@@ -10,7 +10,6 @@ namespace FractalsConsole
         private int PixelsMatrixHeight;
         public byte[,] PixelsMatrix;
         public Complex[,] ComplexMatrix;
-        //private Complex Seed;
         byte max_iteration;
 
         // Limits
@@ -26,23 +25,6 @@ namespace FractalsConsole
         double wOffset;
         double hOffset;
 
-        //// Converted
-        //double xComplex;
-        //double yComplex;
-
-        //// Iteration
-        //double x0, y0;
-
-        //double x2 = 0;
-        //double y2 = 0;
-
-        //double x = 0;
-        //double y = 0;
-
-        //byte iteration = 0x00;
-
-        int ii = 0;
-        int jj = 0;
 
         public int Width { get; }
         public int Height { get; }
@@ -80,14 +62,11 @@ namespace FractalsConsole
             ComplexMatrix = new Complex[height, width];
 
             // Parsing pixels
-            //for (ii = 0; ii < height; ii++)
             Parallel.For(0, height, (i, state) =>
             //for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
-                //for (int j = width-1; j > -1; j--)
                 {
-                    //PixelsMatrix[i, j] = Iterations(i, j);
                     PixelsMatrix[i, j] = Iterations(i, height - 1 - i, j);
                 }
             }
