@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace FractalsConsole
@@ -31,8 +32,12 @@ namespace FractalsConsole
 
         public Fractal(int width, int height, double LeftLimit, double RightLimit, double DownLimit, double UpLimit, int max_iteration = 256)
         {
-            this.Width = width;
-            this.Height= width;
+            //this.Width = width;
+            //this.Height = height;
+            //this.LeftLimit = KeepSignifiantDigits(LeftLimit);
+            //this.RightLimit = KeepSignifiantDigits(RightLimit);
+            //this.UpLimit = KeepSignifiantDigits(UpLimit);
+            //this.DownLimit = KeepSignifiantDigits(DownLimit);
             this.LeftLimit = LeftLimit;
             this.RightLimit = RightLimit;
             this.UpLimit = UpLimit;
@@ -49,14 +54,16 @@ namespace FractalsConsole
                 this.max_iteration = (byte)max_iteration;
             }
 
-            double ComplexWidth = (RightLimit - LeftLimit);
-            double ComplexHeight = (UpLimit - DownLimit);
+            double ComplexWidth = (this.RightLimit - this.LeftLimit);
+            double ComplexHeight = (this.UpLimit - this.DownLimit);
 
+            //hRatio = KeepSignifiantDigits(ComplexHeight) / (PixelsMatrixHeight - 1);
+            //wRatio = KeepSignifiantDigits(ComplexWidth) / (PixelsMatrixWidth - 1);
             hRatio = ComplexHeight / (PixelsMatrixHeight - 1);
             wRatio = ComplexWidth / (PixelsMatrixWidth - 1);
 
-            wOffset = LeftLimit;
-            hOffset = DownLimit;
+            wOffset = this.LeftLimit;
+            hOffset = this.DownLimit;
 
             PixelsMatrix = new byte[height, width];
             ComplexMatrix = new Complex[height, width];
@@ -72,6 +79,19 @@ namespace FractalsConsole
             }
             );
 
+        }
+
+
+        private double KeepSignifiantDigits(double number)
+        {
+            string numb = number.ToString("0.000E0");
+            //string numb = number.ToString();
+            //Regex reg = new Regex("(?<!0)[-|0-9|\\.]{1,5}");
+            //Match numbSign = reg.Match(numb)
+            //double numbDbl = double.Parse(numbSign.Value)/*;*/
+            double numbDbl = double.Parse(numb);
+
+            return numbDbl;
         }
 
         public (double, double) ConvertPixelToComplex(int xPixel, int yPixel)

@@ -61,9 +61,6 @@ namespace BitmapWritter
             Tools.FileManager.bw.Close();
         }
 
-
-
-
     }
 
     class BitmapHeader
@@ -217,17 +214,17 @@ namespace BitmapWritter
             double blueIncr = ((double)nbColors - (double)blueShift) / (double)nbColors;
 
             double A_r = 10;
-            double alpha_r;// = i * 2*Math.PI / 256;
+            double alpha_r;
             double B_r = 2 * Math.PI * 0.9;
             double C_r = 0;
 
             double A_g = 255;
-            double alpha_g;// = i * 2*Math.PI / 256;
+            double alpha_g;
             double B_g = 2 * Math.PI * 0.5;
             double C_g = 2;
 
             double A_b = 50;
-            double alpha_b;// = i * 2*Math.PI / 256;
+            double alpha_b;
             double B_b = 2 * Math.PI * 0.9;
             double C_b = 4;
 

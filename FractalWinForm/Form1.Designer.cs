@@ -59,7 +59,7 @@ namespace FractalWinForm
             // 
             // btLeft
             // 
-            this.btLeft.Location = new System.Drawing.Point(229, 439);
+            this.btLeft.Location = new System.Drawing.Point(461, 448);
             this.btLeft.Name = "btLeft";
             this.btLeft.Size = new System.Drawing.Size(113, 33);
             this.btLeft.TabIndex = 1;
@@ -69,7 +69,7 @@ namespace FractalWinForm
             // 
             // btRight
             // 
-            this.btRight.Location = new System.Drawing.Point(448, 440);
+            this.btRight.Location = new System.Drawing.Point(680, 449);
             this.btRight.Name = "btRight";
             this.btRight.Size = new System.Drawing.Size(113, 33);
             this.btRight.TabIndex = 2;
@@ -79,7 +79,7 @@ namespace FractalWinForm
             // 
             // btUp
             // 
-            this.btUp.Location = new System.Drawing.Point(337, 384);
+            this.btUp.Location = new System.Drawing.Point(569, 393);
             this.btUp.Name = "btUp";
             this.btUp.Size = new System.Drawing.Size(113, 33);
             this.btUp.TabIndex = 3;
@@ -89,7 +89,7 @@ namespace FractalWinForm
             // 
             // btDown
             // 
-            this.btDown.Location = new System.Drawing.Point(337, 518);
+            this.btDown.Location = new System.Drawing.Point(569, 527);
             this.btDown.Name = "btDown";
             this.btDown.Size = new System.Drawing.Size(113, 33);
             this.btDown.TabIndex = 4;
@@ -99,7 +99,7 @@ namespace FractalWinForm
             // 
             // btZoom
             // 
-            this.btZoom.Location = new System.Drawing.Point(363, 423);
+            this.btZoom.Location = new System.Drawing.Point(595, 432);
             this.btZoom.Name = "btZoom";
             this.btZoom.Size = new System.Drawing.Size(68, 32);
             this.btZoom.TabIndex = 5;
@@ -109,36 +109,36 @@ namespace FractalWinForm
             // 
             // tbLeft
             // 
-            this.tbLeft.Location = new System.Drawing.Point(22, 414);
+            this.tbLeft.Location = new System.Drawing.Point(12, 487);
             this.tbLeft.Name = "tbLeft";
-            this.tbLeft.Size = new System.Drawing.Size(58, 23);
+            this.tbLeft.Size = new System.Drawing.Size(238, 23);
             this.tbLeft.TabIndex = 6;
             // 
             // tbRight
             // 
-            this.tbRight.Location = new System.Drawing.Point(86, 414);
+            this.tbRight.Location = new System.Drawing.Point(269, 487);
             this.tbRight.Name = "tbRight";
-            this.tbRight.Size = new System.Drawing.Size(58, 23);
+            this.tbRight.Size = new System.Drawing.Size(186, 23);
             this.tbRight.TabIndex = 7;
             // 
             // tbUp
             // 
             this.tbUp.Location = new System.Drawing.Point(150, 414);
             this.tbUp.Name = "tbUp";
-            this.tbUp.Size = new System.Drawing.Size(58, 23);
+            this.tbUp.Size = new System.Drawing.Size(199, 23);
             this.tbUp.TabIndex = 8;
             // 
             // tbDown
             // 
-            this.tbDown.Location = new System.Drawing.Point(214, 414);
+            this.tbDown.Location = new System.Drawing.Point(150, 556);
             this.tbDown.Name = "tbDown";
-            this.tbDown.Size = new System.Drawing.Size(58, 23);
+            this.tbDown.Size = new System.Drawing.Size(199, 23);
             this.tbDown.TabIndex = 9;
             // 
             // lblLeft
             // 
             this.lblLeft.AutoSize = true;
-            this.lblLeft.Location = new System.Drawing.Point(22, 393);
+            this.lblLeft.Location = new System.Drawing.Point(29, 466);
             this.lblLeft.Name = "lblLeft";
             this.lblLeft.Size = new System.Drawing.Size(27, 15);
             this.lblLeft.TabIndex = 10;
@@ -147,7 +147,7 @@ namespace FractalWinForm
             // lblRight
             // 
             this.lblRight.AutoSize = true;
-            this.lblRight.Location = new System.Drawing.Point(86, 393);
+            this.lblRight.Location = new System.Drawing.Point(269, 466);
             this.lblRight.Name = "lblRight";
             this.lblRight.Size = new System.Drawing.Size(35, 15);
             this.lblRight.TabIndex = 11;
@@ -165,7 +165,7 @@ namespace FractalWinForm
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(214, 393);
+            this.label4.Location = new System.Drawing.Point(150, 535);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 15);
             this.label4.TabIndex = 13;
@@ -173,7 +173,7 @@ namespace FractalWinForm
             // 
             // btUnzoom
             // 
-            this.btUnzoom.Location = new System.Drawing.Point(363, 480);
+            this.btUnzoom.Location = new System.Drawing.Point(595, 489);
             this.btUnzoom.Name = "btUnzoom";
             this.btUnzoom.Size = new System.Drawing.Size(68, 32);
             this.btUnzoom.TabIndex = 14;
@@ -183,7 +183,7 @@ namespace FractalWinForm
             // 
             // tbZoomFactor
             // 
-            this.tbZoomFactor.Location = new System.Drawing.Point(368, 456);
+            this.tbZoomFactor.Location = new System.Drawing.Point(600, 465);
             this.tbZoomFactor.Name = "tbZoomFactor";
             this.tbZoomFactor.Size = new System.Drawing.Size(58, 23);
             this.tbZoomFactor.TabIndex = 15;
@@ -191,7 +191,7 @@ namespace FractalWinForm
             // 
             // tbMotionFactor
             // 
-            this.tbMotionFactor.Location = new System.Drawing.Point(229, 478);
+            this.tbMotionFactor.Location = new System.Drawing.Point(461, 487);
             this.tbMotionFactor.Name = "tbMotionFactor";
             this.tbMotionFactor.Size = new System.Drawing.Size(58, 23);
             this.tbMotionFactor.TabIndex = 16;

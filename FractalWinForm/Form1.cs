@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -34,12 +35,25 @@ namespace FractalWinForm
 
         private void Recompute(int width, int height, double LeftLimit, double RightLimit, double DownLimit, double UpLimit)
         {
-            fract = new Fractal(width, height, LeftLimit, RightLimit, DownLimit, UpLimit);
+            //fract = new Fractal(width, height, KeepSignifiantDigits(LeftLimit), KeepSignifiantDigits(RightLimit), KeepSignifiantDigits(DownLimit), KeepSignifiantDigits(UpLimit));
+            fract = new Fractal(width, height, (LeftLimit), (RightLimit), (DownLimit), (UpLimit));
             UpdatePosition();
             image = new Bitmap8bits256Colors(fract.PixelsMatrix, 0, 80, 125);
             MemoryStream stream = image.StartWritingInMemory();
             pictureBox1.Image = Bitmap.FromStream(stream);
             image.EndWritingInMemory(stream);
+
+            //double dblSignifiant = KeepSignifiantDigits(LeftLimit);
+        }
+
+        private double KeepSignifiantDigits(double number)
+        {
+            string numb = number.ToString();
+            Regex reg = new Regex("(?<!0)[-|0-9|\\.]{1,5}");
+            Match numbSign = reg.Match(numb);
+            double numbDbl = double.Parse(numbSign.Value);
+
+            return numbDbl;
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
