@@ -20,13 +20,6 @@ namespace Tools
             // Convert int to byte
             byte[] intBytes = BitConverter.GetBytes(valueInt);
 
-            // Copy to padded array
-            //for (int i = 0; i < intBytes.Length; i++)
-            ////for (int i = 0; i < bytesArrayLength; i++)
-            ////{
-            ////    bytesLittleEndian[i] = intBytes[i];
-            ////}
-            
             //return bytesLittleEndian;
             return intBytes.Take(bytesArrayLength).ToArray();
         }

@@ -85,10 +85,6 @@ namespace FractalsConsole
         private double KeepSignifiantDigits(double number)
         {
             string numb = number.ToString("0.000E0");
-            //string numb = number.ToString();
-            //Regex reg = new Regex("(?<!0)[-|0-9|\\.]{1,5}");
-            //Match numbSign = reg.Match(numb)
-            //double numbDbl = double.Parse(numbSign.Value)/*;*/
             double numbDbl = double.Parse(numb);
 
             return numbDbl;
@@ -107,11 +103,6 @@ namespace FractalsConsole
         }
 
         //https://en.wikipedia.org/wiki/Plotting_algorithms_for_the_Mandelbrot_set#Optimized_escape_time_algorithms
-        //private byte Iterations(int xPixel, int yPixel)
-        // LeftLimit = -0.2 .
-        // RightLimit = 0.47
-        // DownLimit = -1.12 .
-        // UpLimit = 1.12
         private byte Iterations(int yPixel, int yPixelReverted, int xPixel)
         {
             // Iteration
@@ -126,17 +117,6 @@ namespace FractalsConsole
             byte iteration = 0x00;
 
             (x0, y0) = ConvertPixelToComplex(xPixel, yPixelReverted);
-
-            // Debug
-            //ComplexMatrix[yPixel, xPixel] = new Complex(y0, x0);
-
-            //x2 = 0;
-            //y2 = 0;
-
-            //x = 0;
-            //y = 0;
-
-            //iteration = 0x00;
 
             while (x2 + y2 <= 4 && iteration < max_iteration)
             {

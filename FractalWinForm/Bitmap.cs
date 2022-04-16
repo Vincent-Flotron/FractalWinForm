@@ -34,7 +34,7 @@ namespace BitmapWritter
             SerializeInBytes();
         }
 
-        public void SerializeInBytes()
+        private void SerializeInBytes()
         {
             byte[] headerBytes = Header.GetBytes();
             byte[] DIBHeaderBytes = DIBHeader.GetBytes();
@@ -241,10 +241,6 @@ namespace BitmapWritter
                 ColorsPalette[i].red = (byte)(A_r * Math.Sin(alpha_r * 2 * Math.PI + B_r) + C_r);
                 ColorsPalette[i].green = (byte)(A_g * Math.Sin(alpha_g * 2 * Math.PI + B_g) + C_g);
                 ColorsPalette[i].blue = (byte)(A_b * Math.Sin(alpha_b * 2 * Math.PI + B_b) + C_b);
-
-                //ColorsPalette[i].red = (byte)((int)(i * redIncr + redShift) % nbColors);
-                //ColorsPalette[i].green = (byte)((int)(i * greenIncr + greenShift) % nbColors);
-                //ColorsPalette[i].blue = (byte)((int)(i * blueIncr + blueShift) % nbColors);
             }
         }
 
@@ -277,17 +273,6 @@ namespace BitmapWritter
             {
                 return length;
             }
-        }
-
-
-        public byte[] GetBytes()
-        {
-            byte[] bytes = new byte[0];
-            foreach (byte[] pixelRowPadded in PixelsValuesPadded)
-            {
-                bytes = Tools.Tools.ConcatenateArrays(bytes, pixelRowPadded);
-            }
-            return bytes;
         }
 
         public BitmapPixelArray(byte[,] pixelsValues)
@@ -329,6 +314,17 @@ namespace BitmapWritter
                 }
             }
             length = widthPadded * height;
+        }
+
+
+        public byte[] GetBytes()
+        {
+            byte[] bytes = new byte[0];
+            foreach (byte[] pixelRowPadded in PixelsValuesPadded)
+            {
+                bytes = Tools.Tools.ConcatenateArrays(bytes, pixelRowPadded);
+            }
+            return bytes;
         }
 
     }

@@ -220,5 +220,6 @@ namespace FractalWinForm
             Recompute(width, height, fract.LeftLimit, fract.RightLimit, fract.DownLimit, fract.UpLimit);
 
         }
+
     }
 }
