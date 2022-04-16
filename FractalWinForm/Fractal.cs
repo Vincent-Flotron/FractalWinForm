@@ -1,6 +1,4 @@
-﻿using System;
-using System.Numerics;
-using System.Text.RegularExpressions;
+﻿using System.Numerics;
 using System.Threading.Tasks;
 
 namespace FractalsConsole

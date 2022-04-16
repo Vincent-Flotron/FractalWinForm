@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BitmapWritter
 {
+    //https://en.wikipedia.org/wiki/BMP_file_format
     class Bitmap8bits256Colors
     {
         BitmapHeader Header;
